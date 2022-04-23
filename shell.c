@@ -9,11 +9,12 @@
 int main(void)
 {
 	char *prompt = "--> ", *input = NULL, **args;
-	size_t length = 0;
+	ssize_t length = 0;
 	ssize_t i;
+	int num_args;
+	int count;
 
-	while (TRUE)
-	{
+	do{
 		write(STDOUT_FILENO, prompt, strlen(prompt));
 
 		i = getline(&input, &length, stdin);
@@ -22,11 +23,19 @@ int main(void)
 		nnl(input);
 		args = _parse(input);
 
-		execve(args[0], args, NULL);
-	}
-
+		for (count = 0; args[count]; count++)
+			++num_args;
+		if (fork() == 0)
+		{
+			execve(args[0], args, NULL);
+		}
+		else
+			wait(NULL);
+	}while(i != EOF);
+	
 	free(input);
 	free (args);
+	_free(args, length);
 
 	return (0);
 }
