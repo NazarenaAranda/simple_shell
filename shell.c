@@ -19,10 +19,10 @@ int main(void)
 		i = getline(&input, &length, stdin);
 
 		write (STDOUT_FILENO, input, i);
-
+		nnl(input);
 		args = _parse(input);
 
-		execve("/bin/ls", args, NULL);
+		execve(args[0], args, NULL);
 	}
 
 	free(input);

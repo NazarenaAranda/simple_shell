@@ -10,4 +10,5 @@
 int main(void);
 char **_parse(char *str);
 char *_strdup(char *str);
+void nnl(char *str);
 #endif
