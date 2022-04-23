@@ -15,4 +15,8 @@ char **_parse(char *str);
 char *_strdup(char *str);
 void nnl(char *str);
 void _free(char **grid, int height);
+void pr_str(char *str);
+int _putchar(char c);
+int _strcmp(char *str_1, char *str_2);
+int _strlen(char *str);
 #endif
