@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * print_env - imprime environment
+ * printenv - imprime environment
  * @env: environment
  * Return: 0
  */
 
-int print_env(char **env)
+int printenv(char **env, int *ex_st)
 {
-	int i;
+	unsigned int i = 0;
 
 	while (env[i] != NULL)
 	{
@@ -16,25 +16,6 @@ int print_env(char **env)
 		_putchar('\n');
 		i++;
 	}
+	*ex_st = 0;
 	return (0);
-}
-
-/**
- * copy_env - copar environment
- * @env: environment
- * Return: copia de environment
- */
-
-char **copy_env(char **env)
-{
-	char cp;
-	int i;
-
-	for (i = 0; env[i] != NULL; i++)
-	{
-		cp = env[i][0];
-		env[i][0] = '\0';
-		env[i][0] = cp;
-	}
-	return (env);
 }
