@@ -6,33 +6,34 @@
  * Return: Puntero a la str parseada
  */
 
-char **_parse(char *str)
+char **_parse(char *input)
 {
-	char *par = NULL, *par2 = NULL, *cp = NULL, **args;
-	int arg_num = 0, i = 0;
+	char *par1 = NULL, *par2 = NULL, *cp = NULL, **args;
+	int num_arg = 0, i = 0;
 
-	cp = _strdup(str);
-	par = strtok(cp, " ");
+	cp = _strdup(input);
+	par1 = strtok(cp, " \t");
 
-	while (par != NULL)
+	while (par1 != NULL)
 	{
-		arg_num++;
-		par = strtok(NULL, " ");
+		num_arg++;
+		par1 = strtok(NULL, " \t");
 	}
 
-	args = malloc(sizeof(char *) * (arg_num + 1));
+	args = malloc(sizeof(char *) * (num_arg + 1));
 
-	par2 = strtok(str, " ");
+	if (args == NULL)
+		return (NULL);
+
+	par2 = strtok(input, " \t");
 
 	while (par2 != NULL)
 	{
 		args[i] = par2;
-		par2 = strtok(NULL, " ");
-		i++;
+		par2 = strtok(NULL, " \t")
 	}
 
 	args[i] = NULL;
-
+	free(cp)
 	return (args);
 }
-

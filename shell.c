@@ -9,7 +9,7 @@
 */
 int main(void)
 {
-	char *prompt = "--> ", *input = NULL, **args;
+	char *prompt = "$ ", *input = NULL, **args;
 	ssize_t length = 0;
 	ssize_t i;
 	int num_args;

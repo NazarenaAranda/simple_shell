@@ -1,7 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#define TRUE (1 == 1)
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -25,4 +24,6 @@ char **copy_env(char **env);
 char *_strcpy(char *dest, char *src);
 char *print_path(char *right, *char *first);
 void print_int(int *counter);
+int printenv(char **env, int *ex_st);
+int spec_char(char *buf, ssize_t bytes, int *ex_st);
 #endif
