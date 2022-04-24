@@ -19,7 +19,7 @@ void _continue_main(int stat, char **args, int *ex_st, int *count)
             
             else
                 wait(NULL);
-            *ex_st = 0
+            *ex_st = 0;
         }
         else if (access(args[0], F_OK) != 0)
         {

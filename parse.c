@@ -30,10 +30,10 @@ char **_parse(char *input)
 	while (par2 != NULL)
 	{
 		args[i] = par2;
-		par2 = strtok(NULL, " \t")
+		par2 = strtok(NULL, " \t");
 	}
 
 	args[i] = NULL;
-	free(cp)
+	free(cp);
 	return (args);
 }

@@ -9,7 +9,7 @@
  * Return: 0
  */
 
-char *_path(char *first, char **env, char **input, int *ex_st)
+int _path(char *first, char **env, char **input, int *ex_st)
 {
 	int i;
 	char *tmp, *left, *right;
@@ -27,7 +27,7 @@ char *_path(char *first, char **env, char **input, int *ex_st)
 			while (right)
 			{
 				new = print_path(right, first);
-				if (access(new, X_OX) == 0)
+				if (access(new, X_OK) == 0)
 				{
 					if (fork() == 0)
 						execve(new, input, NULL);
@@ -40,7 +40,7 @@ char *_path(char *first, char **env, char **input, int *ex_st)
 					return (0);
 				}
 
-				right = strtok(NULL, ": \t")
+				right = strtok(NULL, ": \t");
 				free(new);
 			}
 		}

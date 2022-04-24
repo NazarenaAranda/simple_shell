@@ -10,7 +10,7 @@ void print_str(char *str)
 	int i, bytes, n;
 
 	for (i = 0; str[i] != '\0'; i++)
-			;
+		;
 
 	bytes = i;
 

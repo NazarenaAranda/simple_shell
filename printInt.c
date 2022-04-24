@@ -18,7 +18,7 @@ void print_int(int *counter)
     do {
         d /= 10;
         ++length;
-    } while (d != 0)
+    } while (d != 0);
 
     count += length;
 

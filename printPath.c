@@ -7,7 +7,7 @@
  * Return: 0
  */
 
-char *print_path(char *right, *char *first)
+char *print_path(char *right, char *first)
 {
     char *new = NULL, *token = NULL;
     int token_len = 0, first_len = 0;

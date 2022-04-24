@@ -16,6 +16,7 @@ void nnl(char *str)
 			str[i] = '\0';
 			return;
 		}
+
 		i++;
 	}
 }
