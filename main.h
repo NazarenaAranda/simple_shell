@@ -1,16 +1,14 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#define TRUE (1 == 1)
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <math.h>
-#include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
-#include <stdlib.h>
-extern char **environ;
+#include <unistd.h>
 
 int main(void);
 char **_parse(char *str);
