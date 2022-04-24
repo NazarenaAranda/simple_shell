@@ -3,7 +3,8 @@
  * main - main de la simple_shell
  * Return: comman
 */
-int main(int argc, char **argv, char **env) {
+int main(int argc, char **argv, char **env) 
+{
 	(void)argc, (void)**argv;
 	char *prompt = "$ ", *input = NULL, **args = NULL;
 	int i = 0, stat = 0, arg_num = 0;
@@ -11,7 +12,8 @@ int main(int argc, char **argv, char **env) {
 	size_t len = 0;
 	ssize_t lec = 0;
 	
-	while(1) {
+	while(1) 
+	{
 		if (isatty(STDIN_FILENO) == 1)
 			write(STDOUT_FILENO, prompt, strlen(prompt));
 

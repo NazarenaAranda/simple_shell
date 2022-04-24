@@ -26,4 +26,5 @@ char *print_path(char *right, *char *first);
 void print_int(int *counter);
 int printenv(char **env, int *ex_st);
 int spec_char(char *buf, ssize_t bytes, int *ex_st);
+void _continue_main(int stat, char **args, int *ex_st, int *count);
 #endif
