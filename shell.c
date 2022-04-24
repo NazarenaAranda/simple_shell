@@ -3,22 +3,20 @@
  * main - main de la simple_shell
  * Return: comman
 */
-int main(int argc, char **argv, char **env) 
+int main(int argc, char **argv, char **env)
 {
-	char *prompt = "$ ";
-	char *input = NULL; 
-	char **args = NULL;
+    char *prompt = "$ ";
+	char *input = NULL, **args = NULL;
 	int i = 0, stat = 0, arg_num = 0;
 	static int ex_st, counter;
 	size_t len = 0;
 	ssize_t lec = 0;
 	(void)argc, (void)**argv;
 
-	while(1) 
+	while (1)
 	{
 		if (isatty(STDIN_FILENO) == 1)
-	
-			write(STDOUT_FILENO, prompt, strlen(prompt));
+			write(STDOUT_FILENO, prompt, _strlen(prompt));
 
 		lec = getline(&input, &len, stdin);
 		++counter;

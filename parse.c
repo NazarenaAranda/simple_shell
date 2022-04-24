@@ -8,7 +8,10 @@
 
 char **_parse(char *input)
 {
-	char *par1 = NULL, *par2 = NULL, *cp = NULL, **args;
+	char **args;
+	char *par1 = NULL;
+	char *par2 = NULL;
+	char *cp = NULL;
 	int num_arg = 0, i = 0;
 
 	cp = _strdup(input);
@@ -31,6 +34,7 @@ char **_parse(char *input)
 	{
 		args[i] = par2;
 		par2 = strtok(NULL, " \t");
+		i++;
 	}
 
 	args[i] = NULL;

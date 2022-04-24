@@ -15,7 +15,8 @@ void _continue_main(int stat, char **args, int *ex_st, int *count)
 		if (access(args[0], X_OK) == 0)
 		{
 			if (fork() == 0)
-				execve(args[0], args, NULL);
+                execve(args[0], args, NULL);
+
 			else
 				wait(NULL);
 			*ex_st = 0;
@@ -26,15 +27,15 @@ void _continue_main(int stat, char **args, int *ex_st, int *count)
 			print_int(count);
 			print_str(": ");
 			perror(args[0]);
-			*ex_st = 126;
+			*ex_st = 127;
 		}
 		else if (access(args[0], F_OK) == 0 && access(args[0], X_OK) != 0)
 		{
- 			print_str("sh: ");
-                        print_int(count);
-                        print_str(": ");
-                        perror(args[0]);
-                        *ex_st = 126;
+			print_str("sh: ");
+			print_int(count);
+			print_str(": ");
+			perror(args[0]);
+			*ex_st = 126;
 		}
 	}
 	free(args);

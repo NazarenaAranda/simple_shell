@@ -9,10 +9,10 @@
  * Return: 0
  */
 
-int _path(char *first, char **env, char **input, int *ex_st)
+int _path(char *first, char **input, char **env, int *ex_st)
 {
 	int i;
-	char *tmp, *left, *right;
+	char *tmp, *left, *rigth;
 	char *new = NULL, *cp_env = NULL;
 
 	for (i = 0; env[i] != NULL; i++)
@@ -23,24 +23,23 @@ int _path(char *first, char **env, char **input, int *ex_st)
 
 		if (_strcmp(left, "PATH") == 0)
 		{
-			right = strtok(tmp, ": \t");
-			while (right)
+			rigth = strtok(tmp, ": \t");
+			while (rigth)
 			{
-				new = print_path(right, first);
+				new = print_path(rigth, first);
+
 				if (access(new, X_OK) == 0)
 				{
 					if (fork() == 0)
 						execve(new, input, NULL);
 					else
 						wait(NULL);
-
 					*ex_st = 0;
 					free(new);
 					free(cp_env);
 					return (0);
 				}
-
-				right = strtok(NULL, ": \t");
+				rigth = strtok(NULL, ": \t");
 				free(new);
 			}
 		}

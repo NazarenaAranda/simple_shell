@@ -11,6 +11,7 @@ void print_int(int *counter)
 	unsigned int base = 1, d, max;
 
 	n = *counter;
+
 	max = n;
 	d = max;
 
@@ -21,8 +22,9 @@ void print_int(int *counter)
 
 	count += length;
 
-	for (j = 0; j < length - 1; j++)
+	for (j = 0; j < length -  1; j++)
 		base = base * 10;
+
 	_putchar('0' + (max / base));
 
 	if (length > 1)
@@ -33,6 +35,6 @@ void print_int(int *counter)
 			d = max / base;
 			_putchar('0' + d % 10);
 		}
-	       	_putchar('0' + ( max % 10));
+		_putchar('0' + (max % 10));
 	}
 }
