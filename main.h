@@ -10,6 +10,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <stdlib.h>
+extern char **environ;
 
 int main(void);
 char **_parse(char *str);
@@ -23,4 +24,5 @@ int _strlen(char *str);
 char *_strcat(char *s1, char *s2);
 char *_path(char *first, char **env);
 void print_str(char *str);
+char **copy_env(char **env);
 #endif

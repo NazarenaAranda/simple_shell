@@ -28,7 +28,7 @@ int main(void)
 			++num_args;
 		if (fork() == 0)
 		{
-			execve(args[0], args, NULL);
+			execve(_path(args[0], environ), args, NULL);
 		}
 		else
 		{
