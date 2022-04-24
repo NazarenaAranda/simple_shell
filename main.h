@@ -19,7 +19,7 @@ int _strcmp(char *str_1, char *str_2);
 int _strlen(char *str);
 char *_strcat(char *s1, char *s2);
 int _path(char *first, char **env, char **input, int *ex_st);
-void comands(char * input, char **args, char **env, int *ex_st);
+void comands(char *input, char **args, char **env, int *ex_st);
 void print_str(char *str);
 char **copy_env(char **env);
 char *_strcpy(char *dest, char *src);

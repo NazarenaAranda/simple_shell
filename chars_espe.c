@@ -2,7 +2,7 @@
 
 /**
  * spec_char - con ctrl d, se sale y maneja
-* el error, cuando el usuario sigue tabulando ejecuta
+*el error, cuando el usuario sigue tabulando ejecuta
 * el comando
  * @bytes: numero de bytes del input
  * @buf: buffer
@@ -12,16 +12,16 @@
 
 int spec_char(char *buf, ssize_t bytes, int *ex_st)
 {
-    int i = 0;
-
-    if (bytes == EOF && isatty(STDIN_FILENO) == 1)
-    {
-        _putchar('\n');
-        free(buf);
-        exit(*ex_st);
-    }
-
-    if (bytes == EOF && isatty(STDIN_FILENO) == 0)
+	int i = 0;
+	
+	if (bytes == EOF && isatty(STDIN_FILENO) == 1)
+	{
+		_putchar('\n');
+		free(buf);
+		exit(*ex_st);
+	}
+	
+	if (bytes == EOF && isatty(STDIN_FILENO) == 0)
     {
         free(buf);
         exit(*ex_st);

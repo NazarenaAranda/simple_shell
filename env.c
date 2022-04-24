@@ -3,6 +3,7 @@
 /**
  * printenv - imprime environment
  * @env: environment
+ * @ex_st: exit status
  * Return: 0
  */
 
@@ -19,3 +20,4 @@ int printenv(char **env, int *ex_st)
 	*ex_st = 0;
 	return (0);
 }
+

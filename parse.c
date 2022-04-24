@@ -2,7 +2,7 @@
 
 /**
  * _parse - Parsear una string del input
- * @str: String a parsear
+ * @input: String a parsear
  * Return: Puntero a la str parseada
  */
 
