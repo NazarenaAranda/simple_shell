@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * strdup - Duplicar una string
+ * _strdup - Duplicar una string
  * @str: string a duplicar
  * Return: Puntero a la nueva string
  */

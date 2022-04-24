@@ -2,19 +2,19 @@
 
 /**
  * nnl - removes the new line with the NULL character
- * @srt: line
- *
+ * @str: line
  */
 void nnl(char *str)
 {
-    int i = 0;
-    while (str[i])
-    {
-        if (str[i] == '\n')
-        {
-            str[i] = '\0';
-            return;
-        }
-        i++;
-    }
+	int i = 0;
+
+	while (str[i])
+	{
+		if (str[i] == '\n')
+		{
+			str[i] = '\0';
+			return;
+		}
+		i++;
+	}
 }

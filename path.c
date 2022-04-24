@@ -25,13 +25,13 @@ char *_path(char *first, char **env)
 		tmp = strtok(ri, ":");
 		while (tmp) /* loop al valor correcto */
 			tok_length = tmp;
+
 		for (j = 0; tok_length[j] != '0'; j++)
-		       ; 	/* loop a traves de token */
+			;
 		for (k = 0; first[k] != '\0'; k++)
 			;
 
-		new = malloc((j + k + 2) * sizeof(char))
-		       ; 	/* barra diagonal, 2 y NULL */
+		new = malloc((j + k + 2) * sizeof(char)); /* barra diagonal, 2 y NULL */
 			if (new == NULL)
 				return (NULL);
 

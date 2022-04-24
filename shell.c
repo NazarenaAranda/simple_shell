@@ -5,7 +5,8 @@
 
 /**
  * main - main de la simple_shell
- */
+ * Return: comman
+*/
 int main(void)
 {
 	char *prompt = "--> ", *input = NULL, **args;
@@ -14,12 +15,12 @@ int main(void)
 	int num_args;
 	int count;
 
-	do{
+	do {
 		write(STDOUT_FILENO, prompt, strlen(prompt));
 
 		i = getline(&input, &length, stdin);
 
-		write (STDOUT_FILENO, input, i);
+		write(STDOUT_FILENO, input, i);
 		nnl(input);
 		args = _parse(input);
 
@@ -34,10 +35,10 @@ int main(void)
 			wait(NULL);
 		}
 
-	}while(i != EOF);
-	
+	} while (i != EOF);
+
 	free(input);
-	free (args);
+	free(args);
 	_free(args, length);
 
 	return (0);
