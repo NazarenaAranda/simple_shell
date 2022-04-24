@@ -15,7 +15,6 @@ char **_parse(char *str);
 char *_strdup(char *str);
 void nnl(char *str);
 void _free(char **grid, int height);
-void pr_str(char *str);
 int _putchar(char c);
 int _strcmp(char *str_1, char *str_2);
 int _strlen(char *str);
@@ -23,4 +22,7 @@ char *_strcat(char *s1, char *s2);
 char *_path(char *first, char **env);
 void print_str(char *str);
 char **copy_env(char **env);
+char *_strcpy(char *dest, char *src);
+char *print_path(char *right, *char *first);
+void print_int(int *counter);
 #endif

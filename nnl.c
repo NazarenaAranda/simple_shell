@@ -2,7 +2,8 @@
 
 /**
  * nnl - removes the new line with the NULL character
- * @str: line
+ * @str: la linea
+ * Return: nothing
  */
 void nnl(char *str)
 {
