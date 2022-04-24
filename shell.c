@@ -3,8 +3,7 @@
  * main - main de la simple_shell
  * Return: comman
 */
-int main(int argc, char **argv, char **env)
-{
+int main(int argc, char **argv, char **env) {
 	(void)argc, (void)**argv;
 	char *prompt = "$ ", *input = NULL, **args = NULL;
 	int i = 0, stat = 0, arg_num = 0;
@@ -12,32 +11,26 @@ int main(int argc, char **argv, char **env)
 	size_t len = 0;
 	ssize_t lec = 0;
 	
-	while(1)
-	{
-		write(STDOUT_FILENO, prompt, strlen(prompt));
+	while(1) {
+		if (isatty(STDIN_FILENO) == 1)
+			write(STDOUT_FILENO, prompt, strlen(prompt));
 
-		i = getline(&input, &length, stdin);
+		lec = getline(&input, &len, stdin);
+		++counter;
+		if (spec_char(input, lec, &ex_st) == 127)
+			continue;
 
-		write(STDOUT_FILENO, input, i);
 		nnl(input);
+
 		args = _parse(input);
+		for (i = 0; args[i]; i++)
+			arg_num++;
 
-		for (count = 0; args[count]; count++)
-			++num_args;
-		if (fork() == 0)
-		{
-			execve(_path(args[0], environ), args, NULL);
-		}
-		else
-		{
-			wait(NULL);
-		}
-
-	} while (i != EOF);
-
+		comands(input, args, env, &ex_st);
+		stat = _path(args[0], args, env, &ex_st);
+		_continue_main(stat, args, &ex_st, &counter);
+		fflush(stdin);
+	}
 	free(input);
-	free(args);
-	_free(args, length);
-
 	return (0);
 }
