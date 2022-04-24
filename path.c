@@ -1,50 +1,50 @@
 #include "main.h"
 
 /**
- * _path - funcion para imprime el environment
+ * _path - funcion para imprime el environment de PATH
  * @env: environment
- * @first: char
- * Return: path
+ * @first: la primer palabra tokenizada (el comando)
+ * @input: argumentos tokenizados
+ * @ex_st: exit status
+ * Return: 0
  */
 
-char *_path(char *first, char **env)
+char *_path(char *first, char **env, char **input, int *ex_st)
 {
-	int i, j, k;
-	char *env_copy;
-	char *lef, *ri, *tmp, *tok_length, *new;
+	int i;
+	char *tmp, *left, *right;
+	char *new = NULL, *cp_env = NULL;
 
 	for (i = 0; env[i] != NULL; i++)
 	{
-		env_copy = _strdup(env[i]);
-		lef = strtok(env_copy, "=");
-			ri = strtok(NULL, "=");
+		cp_env = _strdup(env[i]);
+		left = strtok(cp_env, "= \t");
+		tmp = strtok(NULL, "= \t");
+
+		if (_strcmp(left, "PATH") == 0)
+		{
+			right = strtok(tmp, ": \t");
+			while (right)
+			{
+				new = print_path(right, first);
+				if (access(new, X_OX) == 0)
+				{
+					if (fork() == 0)
+						execve(new, input, NULL);
+					else
+						wait(NULL);
+
+					*ex_st = 0;
+					free(new);
+					free(cp_env);
+					return (0);
+				}
+
+				right = strtok(NULL, ": \t")
+				free(new);
+			}
+		}
+		free(cp_env);
 	}
-
-	if (_strcmp(lef, "PATH") == 0)
-	{
-		tmp = strtok(ri, ":");
-		while (tmp) /* loop al valor correcto */
-			tok_length = tmp;
-
-		for (j = 0; tok_length[j] != '0'; j++)
-			;
-		for (k = 0; first[k] != '\0'; k++)
-			;
-
-		new = malloc((j + k + 2) * sizeof(char)); /* barra diagonal, 2 y NULL */
-			if (new == NULL)
-				return (NULL);
-
-		_strcat(new, first);
-		_strcat(new, "/");
-		_strcat(new, '\0');
-
-		if (access(new, X_OK) == 0)
-			return (new);
-
-		tmp = strtok(NULL, ":");
-		free(new);
-	}
+	return (2);
 }
-
-

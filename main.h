@@ -9,7 +9,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-int main(void);
+int main(int argc, char **argv, char **env);
 char **_parse(char *str);
 char *_strdup(char *str);
 void nnl(char *str);
