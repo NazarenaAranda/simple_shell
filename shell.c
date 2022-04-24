@@ -30,7 +30,10 @@ int main(void)
 			execve(args[0], args, NULL);
 		}
 		else
+		{
 			wait(NULL);
+		}
+
 	}while(i != EOF);
 	
 	free(input);

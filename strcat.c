@@ -19,3 +19,8 @@ char *_strcat(char *s1, char *s2)
 	*result = '\0';
 	while (s1[b])
 		result[a++] = s1[b++];
+	while (s2[b])
+		result[a++] = s2[b++];
+	result[a] = '\0';
+	return (result);
+}

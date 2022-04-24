@@ -21,4 +21,6 @@ int _putchar(char c);
 int _strcmp(char *str_1, char *str_2);
 int _strlen(char *str);
 char *_strcat(char *s1, char *s2);
+char *_path(char *first, char **env);
+void print_str(char *str);
 #endif

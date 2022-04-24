@@ -17,3 +17,16 @@ void pr_str(char *str)
     if (wc == 0)
         return;
 }
+
+/**
+ * print_str - imprimir una string
+ * @str: string
+ */
+
+void print_str(char *str)
+{
+	int i;
+
+	for (; str[i] != '\0'; i++)
+		_putchar(str[i]);
+}
