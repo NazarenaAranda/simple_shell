@@ -14,7 +14,7 @@ char *print_path(char *rigth, char *first)
 	int token_len = 0, first_len = 0;
 
 	token = rigth;
-    token_len = _strlen(token);
+	token_len = _strlen(token);
 	first_len = _strlen(first);
 
 	new = malloc((token_len + first_len + 2) * sizeof(char));

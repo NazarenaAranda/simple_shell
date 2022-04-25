@@ -1,11 +1,14 @@
 #include "main.h"
 /**
  * main - main de la simple_shell
+ * @argc: argumentos
+ * @argv: cantidad de argumentos
+ * @env: environment
  * Return: comman
 */
 int main(int argc, char **argv, char **env)
 {
-    char *prompt = "$ ";
+	char *prompt = "$ ";
 	char *input = NULL, **args = NULL;
 	int i = 0, stat = 0, arg_num = 0;
 	static int ex_st, counter;
@@ -37,3 +40,4 @@ int main(int argc, char **argv, char **env)
 	free(input);
 	return (0);
 }
+

@@ -38,3 +38,4 @@ void print_int(int *counter)
 		_putchar('0' + (max % 10));
 	}
 }
+

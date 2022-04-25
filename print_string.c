@@ -18,3 +18,4 @@ void print_str(char *str)
 	if (n == EOF)
 		return;
 }
+
